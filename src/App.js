@@ -42,6 +42,28 @@ const ScrolledCell = props => {
   );
 }
 
+function createScrollableColumns(props) {
+  let adMetricsArray = [];
+  let adMetricsColumns = [];
+  
+  if (props.adMetrics.column_names !== undefined && props.adMetrics.column_names.length > 0) {
+    adMetricsArray = props.adMetrics.column_names;
+  }
+
+  adMetricsArray.forEach(column => {
+    adMetricsColumns.push(
+      <Column
+        header={<Cell>{column}</Cell>}
+        cell={<ScrolledCell data={props} field={column} />}
+        width={150}
+        key={column}
+      />
+    );
+  });
+
+  return adMetricsColumns;
+}
+
 const FixedTable = props => {
   const {ads} = props;
   const adSize = _.size(ads.ads);
@@ -62,11 +84,7 @@ const FixedTable = props => {
           width={100}
           fixed={true}
         />
-        <Column
-          header={<Cell>Impressions</Cell>}
-          cell={<ScrolledCell data={props} field="impressions" />}
-          width={150}
-        />
+        {createScrollableColumns(props)}
         <Column
           header={<Cell>Reach</Cell>}
           cell={<ScrolledCell data={props} field="reach" />}

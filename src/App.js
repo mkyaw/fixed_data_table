@@ -7,9 +7,13 @@ import 'fixed-data-table-2/dist/fixed-data-table.css';
 
 import {ads, ad_metrics} from './mock_data';
 
+let remoteIdLocations = {};
+
 const FixedCell = props => {
   const {rowIndex, field} = props;
   const value = props.data.ads.ads[rowIndex][field];
+
+  remoteIdLocations[rowIndex] = props.data.ads.ads[rowIndex]['remote_id'];
 
   return (
     <Cell>

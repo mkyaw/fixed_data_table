@@ -111,11 +111,11 @@ class App extends Component {
             this.setState({ads, adMetrics});
           })
           .catch(error => {
-            console.log(`getAdMetrics error: ${error}`);
+            console.log('getAdMetrics error:', error);
           });
       })
       .catch(error => {
-        console.log(`getAds error: ${error}`);
+        console.log('getAds error:', error);
       });
   }
 

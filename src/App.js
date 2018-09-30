@@ -69,52 +69,52 @@ const FixedTable = props => {
         />
         <Column
           header={<Cell>Reach</Cell>}
-          cell="Reach"
+          cell={<ScrolledCell data={props} field="reach" />}
           width={150}
         />
         <Column
           header={<Cell>Frequency</Cell>}
-          cell="Frequency"
+          cell={<ScrolledCell data={props} field="frequency" />}
           width={150}
         />
         <Column
           header={<Cell>CPM</Cell>}
-          cell="CPM"
+          cell={<ScrolledCell data={props} field="cpm" />}
           width={150}
         />
         <Column
           header={<Cell>Spend</Cell>}
-          cell="Spend"
+          cell={<ScrolledCell data={props} field="spend" />}
           width={150}
         />
         <Column
           header={<Cell>CTR</Cell>}
-          cell="CTR"
+          cell={<ScrolledCell data={props} field="ctr" />}
           width={150}
         />
         <Column
           header={<Cell>Cost Per Inline Link Click</Cell>}
-          cell="Click"
+          cell={<ScrolledCell data={props} field="cost_per_inline_link_click" />}
           width={150}
         />
         <Column
           header={<Cell>Actions: Goal</Cell>}
-          cell="Goal"
+          cell={<ScrolledCell data={props} field="actions:goal" />}
           width={150}
         />
         <Column
           header={<Cell>Actions: Link Click</Cell>}
-          cell="Click"
+          cell={<ScrolledCell data={props} field="actions:link_click" />}
           width={150}
         />
         <Column
           header={<Cell>Cost Per Action Type: Cost Per Goal</Cell>}
-          cell="Goal"
+          cell={<ScrolledCell data={props} field="cost_per_action_type:cost_per_goal" />}
           width={150}
         />
         <Column
           header={<Cell>Actions: Offsite Conversion</Cell>}
-          cell="Conversion"
+          cell={<ScrolledCell data={props} field="actions:offsite_conversion" />}
           width={150}
         />
       </Table>

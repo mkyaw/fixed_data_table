@@ -1,9 +1,90 @@
 import React, { Component } from 'react';
-import './App.css';
 import {Table, Column, Cell} from 'fixed-data-table-2';
+import _ from 'lodash';
+
+import './App.css';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 
 import {ads, ad_metrics} from './mock_data';
+
+const FixedTable = props => {
+  const {ads} = props;
+  const adSize = _.size(ads.ads);
+
+  return (
+    <div style={{padding: '20px', margin: '0 20%'}}>
+      <Table
+        rowHeight={100}
+        rowsCount={adSize}
+        width={500}
+        height={500}
+        headerHeight={70}
+        marginTop={20}
+      >
+        <Column
+          header={<Cell>Ads Name</Cell>}
+          cell="Ads Name Cell"
+          width={100}
+        />
+        <Column
+          header={<Cell>Impressions</Cell>}
+          cell="Impressions"
+          width={150}
+        />
+        <Column
+          header={<Cell>Reach</Cell>}
+          cell="Reach"
+          width={150}
+        />
+        <Column
+          header={<Cell>Frequency</Cell>}
+          cell="Frequency"
+          width={150}
+        />
+        <Column
+          header={<Cell>CPM</Cell>}
+          cell="CPM"
+          width={150}
+        />
+        <Column
+          header={<Cell>Spend</Cell>}
+          cell="Spend"
+          width={150}
+        />
+        <Column
+          header={<Cell>CTR</Cell>}
+          cell="CTR"
+          width={150}
+        />
+        <Column
+          header={<Cell>Cost Per Inline Link Click</Cell>}
+          cell="Click"
+          width={150}
+        />
+        <Column
+          header={<Cell>Actions: Goal</Cell>}
+          cell="Goal"
+          width={150}
+        />
+        <Column
+          header={<Cell>Actions: Link Click</Cell>}
+          cell="Click"
+          width={150}
+        />
+        <Column
+          header={<Cell>Cost Per Action Type: Cost Per Goal</Cell>}
+          cell="Goal"
+          width={150}
+        />
+        <Column
+          header={<Cell>Actions: Offsite Conversion</Cell>}
+          cell="Conversion"
+          width={150}
+        />
+      </Table>
+    </div>
+  );
+};
 
 class App extends Component {
   constructor(props) {
@@ -48,10 +129,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2>Fixed Data Table App</h2>
-        {JSON.stringify(this.state.ads)}
-        <br />
-        {JSON.stringify(this.state.adMetrics)}
+        <FixedTable ads={this.state.ads} adMetrics={this.state.adMetrics} />
       </div>
     );
   }

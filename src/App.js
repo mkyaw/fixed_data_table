@@ -7,6 +7,17 @@ import 'fixed-data-table-2/dist/fixed-data-table.css';
 
 import {ads, ad_metrics} from './mock_data';
 
+const FixedCell = props => {
+  const {rowIndex, field} = props;
+  const value = props.data.ads.ads[rowIndex][field];
+
+  return (
+    <Cell>
+      {value}
+    </Cell>
+  );
+}
+
 const FixedTable = props => {
   const {ads} = props;
   const adSize = _.size(ads.ads);
@@ -23,8 +34,9 @@ const FixedTable = props => {
       >
         <Column
           header={<Cell>Ads Name</Cell>}
-          cell="Ads Name Cell"
+          cell={<FixedCell data={props} field="name" />}
           width={100}
+          fixed={true}
         />
         <Column
           header={<Cell>Impressions</Cell>}

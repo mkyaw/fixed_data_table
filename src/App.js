@@ -47,7 +47,7 @@ const FixedTable = props => {
   const adSize = _.size(ads.ads);
 
   return (
-    <div style={{padding: '20px', margin: '0 20%'}}>
+    <div className="fixed-table">
       <Table
         rowHeight={100}
         rowsCount={adSize}

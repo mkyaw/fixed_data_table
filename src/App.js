@@ -51,9 +51,10 @@ function createScrollableColumns(props) {
   }
 
   adMetricsArray.forEach(column => {
+    const headerName = column.replace(/:|_/g, ' ');
     adMetricsColumns.push(
       <Column
-        header={<Cell>{column}</Cell>}
+        header={<Cell>{ucText(headerName)}</Cell>}
         cell={<ScrolledCell data={props} field={column} />}
         width={150}
         key={column}
@@ -63,6 +64,8 @@ function createScrollableColumns(props) {
 
   return adMetricsColumns;
 }
+
+const ucText = text => text.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
 
 const FixedTable = props => {
   const {ads} = props;

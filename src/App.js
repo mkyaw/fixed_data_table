@@ -51,10 +51,10 @@ function createScrollableColumns(props) {
   }
 
   adMetricsArray.forEach(column => {
-    const headerName = column.replace(/:|_/g, ' ');
+    const headerName = ucText(column.replace(/:|_/g, ' '));
     adMetricsColumns.push(
       <Column
-        header={<Cell>{ucText(headerName)}</Cell>}
+        header={<Cell>{headerName}</Cell>}
         cell={<ScrolledCell data={props} field={column} />}
         width={150}
         key={column}

@@ -22,6 +22,26 @@ const FixedCell = props => {
   );
 }
 
+const ScrolledCell = props => {
+  const {rowIndex, field} = props;
+
+  let value = '';
+
+  if (props.data.adMetrics.rows !== undefined && props.data.adMetrics.rows.length > 0) {
+    const foundObj = _.find(props.data.adMetrics.rows, o => {
+      return o.remote_id === remoteIdLocations[rowIndex]
+    });
+    
+    value = foundObj[field];
+  }
+  
+  return (
+    <Cell>
+      {value}
+    </Cell>
+  );
+}
+
 const FixedTable = props => {
   const {ads} = props;
   const adSize = _.size(ads.ads);
@@ -44,7 +64,7 @@ const FixedTable = props => {
         />
         <Column
           header={<Cell>Impressions</Cell>}
-          cell="Impressions"
+          cell={<ScrolledCell data={props} field="impressions" />}
           width={150}
         />
         <Column
